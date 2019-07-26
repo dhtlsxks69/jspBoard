@@ -1,0 +1,25 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+//save() 쓰기, update() 수정, findAll() 전체찾기, findById() 아이디찾기, findByIdAndPw() 아이디와 비밀번호 찾기, delete() 삭제
+public class BoardRepository {
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public int save(){
+		String sql = "INSERT INTO board(username, title, content) VALUES(?,?,?)";
+		//Stream 연결 (java <-> DB) 선
+		Connection conn = DBConnection.getConnection(); //DB연결
+		
+		try {
+			//query를 적을 수 있게 준비 - 아직 query가 완성되지는 않았음.
+			pstmt = conn.prepareStatement(sql);
+		} catch (Exception e) {
+			
+		}
+		return -1;
+	}
+}

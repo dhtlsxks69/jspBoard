@@ -1,0 +1,14 @@
+package action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public interface Action {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//System.out.println("GET요청이 들어옴");
+		doProcess(request, response);  //doGet으로 요청하고 doProcess가 응답함
+	}
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.naming.Context"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="action.Action"/>
+<fullyQualifiedTypeName name="action.BoardActionFactory"/>
+<fullyQualifiedTypeName name="controller.BoardWriteProcAction"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="model.Board"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="repository.DBConnection"/>
+<fullyQualifiedTypeName name="controller.BoardListAction"/>
+<fullyQualifiedTypeName name="sun.font.Script"/>
+<fullyQualifiedTypeName name="controller.BoardWriteAction"/>
+<fullyQualifiedTypeName name="controller.BoardViewAction"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="controller.BoardDeleteAction"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="model.Reply"/>
+<fullyQualifiedTypeName name="controller.BoardUpdateAction"/>
+<fullyQualifiedTypeName name="controller.BoardUpdateProcAction"/>
+<fullyQualifiedTypeName name="repository.BoardRepository"/>
+</qualifiedTypeNameHistroy>

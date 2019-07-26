@@ -1,0 +1,57 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Board;
+
+//save() 쓰기, update() 수정, findAll() 전체찾기, findById() 아이디찾기, findByIdAndPw() 아이디와 비밀번호 찾기, delete() 삭제
+public class BoardRepository {
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public int save(Board b){
+		String sql = "INSERT INTO board(username, title, content) VALUES(?,?,?)";
+		//Stream 연결 (java <-> DB) 선
+		Connection conn = DBConnection.getConnection(); //DB연결
+		
+		try {
+			//query를 적을 수 있게 준비 - 아직 query가 완성되지는 않았음.
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, b.getUsername()); //문장완성
+			pstmt.setString(2, b.getTitle());
+			pstmt.setString(3, b.getContent());
+			int result = pstmt.executeUpdate(); //commit, rollback을 들고 있음.
+			//result == 1이면 정상, 1이 아니면 비정상
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace(); //console창에서 오류 등을 확인할 수 있는 함수
+		}
+		return -1;
+	}
+	
+	public List<Board> findAll(){
+		String sql = "SELECT username, title, content FROM board";
+		Connection conn = DBConnection.getConnection();
+		List<Board> boards = new ArrayList<Board>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery(); //문장을 실행하고 결과를 보여줌.
+			while (rs.next()){
+				Board b = new Board();
+				b.setNum(rs.getInt("num"));
+				b.setUsername(rs.getString("username"));
+				b.setTitle(rs.getString("title"));
+				b.setContent(rs.getString("content"));
+				
+				boards.add(b);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return boards;
+	}
+}

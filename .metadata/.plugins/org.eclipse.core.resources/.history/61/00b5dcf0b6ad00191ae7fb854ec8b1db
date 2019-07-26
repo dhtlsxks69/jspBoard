@@ -1,0 +1,50 @@
+package controller;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//WebServlet 어노테이션으로 접근하는 방법
+//http://ip주소:포트번호/contextpath(프로젝트명)/WebServlet이름
+//http://localhost:8080/board/router
+@WebServlet("/reply")
+public class ReplyController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public ReplyController() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		System.out.println("GET요청이 들어옴");
+		doProcess(request, response);  //doGet으로 요청하고 doProcess가 응답함
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		System.out.println("Post요청이 들어옴");
+		doProcess(request, response); //doPost로 요청하고 doProcess가 응답함
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		System.out.println("doProcess 호출됨");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/plain; charset=UTF-8");
+		
+		BufferedReader br = request.getReader();
+		String input = ""; //string == 컨스턴트 풀
+		StringBuffer sb = new StringBuffer();
+		while((input = br.readLine()) != null){
+			sb.append(input);
+		}
+		System.out.println("받은 데이터 : "+sb.toString());
+		
+		PrintWriter out = response.getWriter();
+		out.println("success");
+	}
+}

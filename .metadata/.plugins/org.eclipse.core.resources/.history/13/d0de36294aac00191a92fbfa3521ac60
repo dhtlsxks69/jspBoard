@@ -1,0 +1,25 @@
+package action;
+
+import controller.BoardWriteProcAction;
+
+//cmd값을 분기만 시키면 됨
+public class BoardFactory {
+	public static Action getAction(String cmd){
+		if(cmd.equals("write")){
+			
+		}else if(cmd.equals("writeProc")){
+			return new BoardWriteProcAction();
+		}else if(cmd.equals("update")){
+			
+		}else if(cmd.equals("updateProc")){
+			
+		}else if(cmd.equals("delete")){
+			
+		}else if(cmd.equals("view")){
+			
+		}else if(cmd.equals("list")){
+			
+		}
+		return null;
+	}
+}
